@@ -29,9 +29,11 @@ jobs:
      - name: Format Go code
        run: test -z $(go fmt ./...)
 
-  name: staticcheck
-  runs-on: ubuntu-latest
-  steps:
+ linting:
+   name: staticcheck
+   runs-on: ubuntu-latest
+   
+   steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
