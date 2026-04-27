@@ -5,7 +5,7 @@ import (
 	"embed"
 	"time"
 	"io"
-	"slog/slog"
+	"log/slog"
 	"net/http"
 	"os"
 
