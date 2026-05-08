@@ -4,14 +4,10 @@ set -a
 source .env
 set +a
 
-# go clean
+go clean
 
-# go build .
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o notely
 
-# ./notely
+sudo docker build --tag jjmaitan/notely:latest .
 
-./scripts/buildprod.sh
-
-sudo docker build -t jjmaitan/notely:latest .
-
-sudo docker run -e PORT=43564 -p 43564:8080 jjmaitan/notely:latest
+sudo docker run --env PORT=43564 --port 43564:8080 jjmaitan/notely:latest
